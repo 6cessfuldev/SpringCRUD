@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.second.repository.UserDAO">
+ 
+<insert id="insert">
+	insert into user(id, pw, age, name, email, home) values(#{id}, #{pw}, #{age}, #{name}, #{email}, #{home})
+</insert>
+
+<select id="selectCntById" resultType="int">
+	select count(*) from user where id = #{id}
+</select>
+ 
+<select id="selectUserById" resultType="com.ezen.second.domain.UserVO">
+	select * from user where id = #{id}
+</select>
+ 
+</mapper>
