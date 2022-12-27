@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -110,7 +111,15 @@
 </main>
 
 
-    
+<script type="text/javascript">
+	const rs = "<c:out value='${result}' />";
+	console.log(rs);
+	if(rs=='0'){
+		alert("해당 아이디가 없습니다.");
+	}else if(rs=='-1'){
+		alert("비밀번호가 틀렸습니다.");
+	}
+</script>    
   
 
 </body></html>

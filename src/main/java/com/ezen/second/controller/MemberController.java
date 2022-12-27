@@ -77,6 +77,7 @@ public class MemberController {
 		
 		HttpSession session = req.getSession();
 		session.setAttribute("user", user);
+		mv.addObject("result", "1");
 		mv.setViewName("/index");
 		
 		return mv;

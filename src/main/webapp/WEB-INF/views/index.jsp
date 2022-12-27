@@ -7,12 +7,8 @@
 
 <script type="text/javascript">
 	const rs = "<c:out value='${result}' />";
-	if(rs!=null){
-		if(rs != "0"){
-			alert("새 글이 등록되었습니다.");
-		}else=={
-			alert("글이 등록되지 않았습니다.");
-		}
+	if(rs=='1'){
+		alert("로그인 되었습니다.");
 	}
 </script>
 
