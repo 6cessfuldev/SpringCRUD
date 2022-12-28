@@ -14,7 +14,7 @@
 <div class="form-wrapper">
 	<h1>Register</h1> <br>
 
-	<form action="/board/register" method="post" enctype="multipart/form-data"">
+	<form action="/board/register" method="post" enctype="multipart/form-data">
 	
 		<label for="title" class="form-label">Title</label>
 		<div class="input-group mb-3">

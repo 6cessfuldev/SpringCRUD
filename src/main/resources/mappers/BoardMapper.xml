@@ -8,6 +8,13 @@
  	insert into board(title, content, writer) values(#{title}, #{content}, #{writer})
  </insert>
  
+ <insert id="insert2">
+ 	<selectKey keyProperty="bno" resultType="int" order="BEFORE">
+		SELECT IFNULL(MAX(bno+1),1) from board
+	</selectKey>
+ 	insert into board(bno, title, content, writer) values(#{bno}, #{title}, #{content}, #{writer})
+ </insert>
+ 
  <select id="selectList" resultType="com.ezen.second.domain.BoardVO">
  	select * from board where isDel = "N" limit #{pageStart},#{qty}
  </select>
@@ -26,6 +33,14 @@
  
  <select id="totalCount" resultType="int">
  	select count(*) from board where isDel = "N";
+ </select>
+ 
+ <delete id="delete">
+ 	delete from board where bno = #{bno}
+ </delete>
+ 
+ <select id="selelctOneBno" resultType="int">
+ 	select max(bno) from board
  </select>
  
 </mapper>

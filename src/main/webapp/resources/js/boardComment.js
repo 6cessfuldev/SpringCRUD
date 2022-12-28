@@ -61,8 +61,8 @@ function getCommentList(bno){
 	
 		console.log(result);
 		const ul = document.getElementById('cmtListArea');
+		ul.innerHTML = "";
 		if(result.length > 0){
-			ul.innerHTML = "";
 			for(let cvo of result){
 				let li = `<li data-cno="${cvo.cno}" class="list-group-item d-flex justify-content-between align-items-start">`;
 				li+=`<div class="ms-2 me-auto"><div class="fw-bold">${cvo.writer}</div>`;
@@ -74,8 +74,7 @@ function getCommentList(bno){
 				ul.innerHTML += li;
 			} 
 		}else {
-			ul.innerHTML =`<li class="list-group-item d-flex justify-content-between aligh-items-start">Comment List Page</li>`;
-			ul.innerHTML += li;
+			ul.innerHTML +=`<li class="list-group-item d-flex justify-content-between aligh-items-start">Comment List Page</li>`;
 		}
 	})
 }

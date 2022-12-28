@@ -76,6 +76,44 @@ public class FileHandler {
 		return fList;
 	}
 	
+	public int deleteFile(FileVO fvo) {
+		log.info(UP_DIR+fvo.getSave_dir()+"/"+fvo.getUuid()+"_"+fvo.getFile_name());
+		try {
+
+			File file = new File(UP_DIR+File.pathSeparator+fvo.getSave_dir()+File.pathSeparator+fvo.getUuid()+"_"+fvo.getFile_name());
+			log.info(file.toString());
+			
+	    	if( file.exists() ){
+	    		if(file.delete()){
+	    			System.out.println("파일삭제 성공");
+	    		}else{
+	    			System.out.println("파일삭제 실패");
+	    		}
+	    	}else{
+	    		System.out.println("파일이 존재하지 않습니다.");
+	    	}
+	    	
+	    	File tfile = new File(UP_DIR+File.pathSeparator+fvo.getSave_dir()+File.pathSeparator+fvo.getUuid()+"_th_"+fvo.getFile_name());
+	    	
+	    	if( tfile.exists() ){
+	    		if(tfile.delete()){
+	    			System.out.println("파일삭제 성공");
+	    		}else{
+	    			System.out.println("파일삭제 실패");
+	    		}
+	    	}else{
+	    		System.out.println("파일이 존재하지 않습니다.");
+	    	}
+			
+		} catch (Exception e) {
+			log.info(">>> file 삭제 오류!!");
+			e.printStackTrace();
+		}
+		
+		return 1;
+		
+	}
+	
 	private boolean isImageFile(File storeFile) throws IOException {
 		
 		String mimeType = new Tika().detect(storeFile);
